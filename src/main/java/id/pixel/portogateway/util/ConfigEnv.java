@@ -9,6 +9,7 @@ public class ConfigEnv {
     private static String cmsPortoApiUrl;
     private static String cmsPortoApiValidateUserEndpoint;
     private static String cmsPortoApiRegisterUserEndpoint;
+    private static String allowedOrigin;
 
     public static String getJwtSecret() {
         return jwtSecret;
@@ -48,5 +49,13 @@ public class ConfigEnv {
 
     public static void setCmsPortoApiRegisterUserEndpoint(String cmsPortoApiRegisterUserEndpoint) {
         ConfigEnv.cmsPortoApiRegisterUserEndpoint = cmsPortoApiRegisterUserEndpoint;
+    }
+
+    public static String getAllowedOrigin() {
+        return allowedOrigin;
+    }
+
+    public static void setAllowedOrigin(String allowedOrigin) {
+        ConfigEnv.allowedOrigin = allowedOrigin;
     }
 }

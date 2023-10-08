@@ -1,16 +1,17 @@
 server:
   port: ${SERVER_PORT:8080}
-spring:
-  main:
-    web-application-type: reactive
-
-config:
+security:
   jwt:
-    secret: ${CONFIG_JWT_SECRET:P@ssw0rd}
-    expired-time: ${CONFIG_JWT_EXPIRED_TIME:900}
-
+    secret: ${SECURITY_JWT_SECRET:P@ssw0rd}
+    expired-time: ${SECURITY_JWT_EXPIRED_TIME:900}
+  allowed-origin: ${SECURITY_ALLOW_ORIGIN:*}
 cms-porto-api:
   url: ${CMS_PORTO_API_URL:http//cms-porto-api}
   endpoint:
     validate-user: ${CMS_PORTO_API_VALIDATE_USER_ENDPOINT:/user/validate}
     register-user: ${CMS_PORTO_API_REGISTER_USER_ENDPOINT:/user/register}
+zuul:
+  routes:
+    cms-porto-api:
+      path: /ping
+      url: http://localhost:8081
